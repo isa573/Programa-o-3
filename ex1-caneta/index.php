@@ -1,54 +1,102 @@
 <?php
-// Definindo a classe caneta
 
-class Caneta{
-    //definir atributos
-
-    public $cor;
-
+class Caneta
+{
+    private $ponta;
+    private $cor;
     public $marca;
 
-    public $ponta;
 
-    public $tamanho;
-
-    public $carga;
-
-    //definir metodos
-
-    public function escrever() {
-     echo "escrevendo...<br>";
+    public function getCor()
+    {
+        return $this->cor;
     }
-     public function rabiscar(){
-        echo "Rabiscando...<br>";
+    public function setCor($cor)
+    {
+        $this->cor = $cor;
     }
-    public function sublinar(){
-        echo "Sublinhando...<br>";
+    public function getPonta()
+    {
+        return $this->ponta;
     }
-    public function pintar(){
-        echo "Pintando...<br>";
+    public function setPonta($ponta)
+    {
+        $this->ponta = $ponta;
+    }
+    public function getmarca()
+    {
+        return $this->marca;
+    }
+
+    public function setmarca($marca)
+    {
+        $this->marca = $marca;
+    }
+    
+    public function __construct($ponta = 0.5, $cor = "azul", $marca = "bic")
+    {
+        $this->ponta = $ponta;
+        $this->cor = $cor;
+        $this->marca = $marca;
+    }   
+}
+$caneta = new Caneta();
+$caneta->setCor("azul");
+$caneta->setPonta(0.5);
+$caneta->setmarca("bic");
+echo "A cor da caneta é: " . $caneta->getCor() . "<br>";
+echo "A ponta da caneta é: " . $caneta->getPonta() . "<br>";
+echo "A marca da caneta é: " . $caneta->getmarca() . "<br>";
+echo "A cor da caneta é: " . $caneta->getCor() . "<br>";
+print_r($caneta);
+echo "<br>";
+?>
+<?php 
+class Carro{
+    private $cor;
+    private $ano;
+    private $modelo;
+
+    public function getCor()
+    {
+        return $this->cor;
+    }
+    public function setCor($cor)
+    {
+        $this->cor = $cor;
+    }
+    public function getAno()
+    {
+        return $this->ano;
+    }
+    public function setAno($ano)
+    {
+        $this->ano = $ano;
+    }
+    public function getModelo()
+    {
+        return $this->modelo;
+    }
+    public function setModelo($modelo)
+    {
+        $this->modelo = $modelo;
+    }
+    public function __construct($cor = "Azul" , $ano = 2015 , $modelo = "Uno")
+    {
+        $this->cor = $cor;
+        $this->ano = $ano;
+        $this->modelo = $modelo;
     }
 }
-// instanciando minha classe caneta
-$caneta = new Caneta ();
-// como os atributos da classe Caneta são publicos, podemos acessá-los diretamente
-$caneta->cor = "azul";
-$caneta->marca = "BIC";
-$caneta->ponta = "0.5";
-$caneta->tamanho = "grande";
-$caneta->carga = 100;
-// exibindo os atributos da caneta
- echo "Cor: " . $caneta->cor . "<br>";
- echo "Marca: " . $caneta->marca . "<br>";
- echo "Ponta: " . $caneta->ponta . "<br>";
- echo "Tamanho: " . $caneta->tamanho . "<br>";
- echo "Carga: " . $caneta->carga . "<br>";
- // chamando os metodos da caneta
- $caneta->escrever();
- $caneta->rabiscar();
- $caneta->sublinar();
- $caneta->pintar();
+///
+$carro = new Carro();
+
+$carro->setCor("azul");     
+$carro->setAno(2015);
+$carro->setModelo("uno");      
 
 
-
-?>
+echo "A cor do carro é: " . $carro->getCor() . "<br>";
+echo "O ano do carro é: " . $carro->getAno() . "<br>";
+echo "O modelo do carro é: " . $carro->getModelo() . "<br>";
+print_r($carro);
